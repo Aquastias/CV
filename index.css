@@ -115,6 +115,9 @@ meter {
 
 	--cv-color: var(--color-nord-3);
 	--cv-border-radius: 0.5rem;
+	--cv-vertical-side-bg-color: var(--color-nord-10);
+	--cv-vertical-delimiter-color: var(--cv-vertical-side-bg-color);
+	--cv-vertical-skills-color: var(--cv-vertical-side-bg-color);
 }
 
 /*----------  Primitive Elements  ----------*/
@@ -322,20 +325,28 @@ footer {
  */
 .cv.vertical {
 	display: grid;
-	grid-template-columns: minmax(300px, 30%) 1fr;
+	grid-template-columns: 1fr;
 	grid-template-areas:
-		"header main"
-		"header main"
-		"header footer";
+		"header header"
+		"main main"
+		"footer footer";
 }
 .cv.vertical header {
 	grid-area: header;
-	background-color: var(--color-nord-10);
+	align-self: center;
+	display: block;
+	background-color: var(--cv-vertical-side-bg-color);
 }
-.cv.vertical header address > ul {
+.cv.vertical header .additional-details address > ul {
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
+	flex-direction: column;
+	gap: 1rem;
+}
+.cv.vertical header figure {
+	display: table;
+	margin: 0 auto 1rem;
 }
 .cv.vertical main {
 	grid-area: main;
@@ -344,18 +355,28 @@ footer {
 	padding-block: 1rem;
 }
 .cv.vertical main section + section {
-	border-top: 2px solid var(--color-nord-7);
+	border-top: 2px solid var(--cv-vertical-delimiter-color);
 }
 .cv.vertical footer {
 	grid-area: footer;
 }
 
-@media (max-width: 48em) {
+@media (min-width: 48em) {
 	.cv.vertical {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(300px, 30%) 1fr;
 		grid-template-areas:
-			"header header"
-			"main main"
-			"footer footer";
+			"header main"
+			"header main"
+			"header footer";
+	}
+	.cv.vertical header {
+		align-self: stretch;
+	}
+	.cv.vertical header :is(h1, h4) {
+		margin-block: 2rem;
+		text-align: center;
+	}
+	.cv.vertical .skills ul li {
+		border-color: var(--cv-vertical-skills-color);
 	}
 }
