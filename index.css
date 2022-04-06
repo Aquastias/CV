@@ -254,3 +254,48 @@ footer {
 		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 	}
 }
+
+/**
+ *
+ * Vertical Layout Styles
+ *
+ */
+.cv.vertical {
+	display: grid;
+	grid-template-columns: minmax(300px, 30%) 1fr;
+	grid-template-areas:
+		"header main"
+		"header main"
+		"header footer";
+}
+.cv.vertical header {
+	grid-area: header;
+	background-color: var(--color-nord-10);
+}
+.cv.vertical header address > ul {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.cv.vertical main {
+	grid-area: main;
+}
+.cv.vertical main section {
+	padding-block: 1rem;
+}
+.cv.vertical main section + section {
+	border-top: 2px solid var(--color-nord-7);
+}
+.cv.vertical footer {
+	grid-area: footer;
+}
+
+@media (max-width: 48em) {
+	.cv.vertical {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"header header"
+			"main main"
+			"footer footer";
+	}
+}
