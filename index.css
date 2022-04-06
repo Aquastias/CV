@@ -204,13 +204,47 @@ footer {
 	font-size: var(--header-size-2);
 	line-height: 1;
 }
-.cv header address {
-  word-wrap: anywhere;
-  word-break: break-word;
+.cv header {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "avatar avatar" "name name" "role role" "details details";
+	justify-items: center;
+	gap: 1rem;
 }
-.cv header address > ul {
-	display: flex;
-	flex-direction: column;
+.cv header figure {
+	grid-area: avatar;
+	align-self: center;
+	display: inline-block;
+	max-width: 200px;
+	height: 200px;
+	border: 2px solid var(--color-nord-4);
+	border-radius: 50%;
+	overflow: hidden;
+}
+.cv header figure img {
+	max-width: 200px;
+	height: 200px;
+	object-fit: cover;
+	object-position: center;
+}
+.cv header h1 {
+	grid-area: name;
+	text-align: center;
+}
+.cv header h4 {
+	grid-area: role;
+	text-align: center;
+}
+.cv header .additional-details {
+	grid-area: details;
+	padding: 1rem;
+}
+.cv header .additional-details address {
+	word-wrap: anywhere;
+	word-break: break-word;
+}
+.cv header .additional-details address span {
+	font-weight: bold;
 }
 .cv main section {
 	padding-block: 1rem;
@@ -252,14 +286,29 @@ footer {
 	.cv h1 {
 		font-size: var(--header-size-1);
 	}
-	.cv header address > ul {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr) auto;
-		align-items: center;
-		grid-gap: 1rem;
+	.cv header {
+		grid-template-areas:
+			"name name"
+			"avatar role"
+			"avatar details";
+		grid-template-columns: 250px auto;
+		justify-items: start;
 	}
-	.cv header address > ul li:last-of-type {
-		grid-column: 1 / -1;
+	.cv header figure,
+	.cv header figure img {
+		max-width: 250px;
+		height: 250px;
+	}
+	.cv header :is(h1, h4) {
+		text-align: left;
+	}
+	.cv header .additional-details address > ul {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+	.cv header .additional-details address > ul li:last-of-type {
+		grid-column: span 2;
 	}
 	.cv .skills ul {
 		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
