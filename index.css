@@ -80,3 +80,39 @@ meter {
 :where([draggable="true"]) {
 	-webkit-user-drag: element;
 }
+
+:root {
+	--color-nord-0: #2e3440;
+	--color-nord-1: #3b4252;
+	--color-nord-2: #434c5e;
+	--color-nord-3: #4c566a;
+	--color-nord-4: #d8dee9;
+	--color-nord-5: #e5e9f0;
+	--color-nord-6: #eceff4;
+	--color-nord-7: #8fbcbb;
+	--color-nord-8: #88c0d0;
+	--color-nord-9: #81a1c1;
+	--color-nord-10: #5e81ac;
+	--color-nord-11: #bf616a;
+	--color-nord-12: #d08770;
+	--color-nord-13: #ebcb8b;
+	--color-nord-14: #a3be8c;
+	--color-nord-15: #b48ead;
+
+	--font-size: 100%;
+
+	--header-size-1: 2.625rem;
+	--header-size-2: 2.063rem;
+	--header-size-3: 1.625ren;
+	--header-size-4: 1.25rem;
+	--header-size-5: 1rem;
+	--header-size-6: 0.813rem;
+
+	--bg-color: var(--color-nord-0);
+
+	--header-color: var(--color-nord-2);
+	--footer-color: var(--color-nord-2);
+
+	--cv-color: var(--color-nord-3);
+	--cv-border-radius: 0.5rem;
+}
