@@ -204,6 +204,10 @@ footer {
 	font-size: var(--header-size-2);
 	line-height: 1;
 }
+.cv header address {
+  word-wrap: anywhere;
+  word-break: break-word;
+}
 .cv header address > ul {
 	display: flex;
 	flex-direction: column;
